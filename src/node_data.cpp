@@ -8,7 +8,7 @@ namespace YAML
 {
 	namespace detail
 	{
-		std::string node_data::empty_scalar;
+		//std::string node_data::empty_scalar;
 
 		node_data::node_data(): m_isDefined(false), m_type(NodeType::Null), m_seqSize(0)
 		{
@@ -28,14 +28,14 @@ namespace YAML
 				m_isDefined = false;
 				return;
 			}
-			
+
 
 			m_isDefined = true;
 			if(type == m_type)
 				return;
-			
+
 			m_type = type;
-			
+
 			switch(m_type) {
 				case NodeType::Null:
 					break;
@@ -58,13 +58,13 @@ namespace YAML
 		{
 			m_tag = tag;
 		}
-		
+
 		void node_data::set_null()
 		{
 			m_isDefined = true;
 			m_type = NodeType::Null;
 		}
-		
+
 		void node_data::set_scalar(const std::string& scalar)
 		{
 			m_isDefined = true;
@@ -86,7 +86,7 @@ namespace YAML
 			}
 			return 0;
 		}
-		
+
 		void node_data::compute_seq_size() const
 		{
 			while(m_seqSize < m_sequence.size() && m_sequence[m_seqSize]->is_defined())
@@ -103,19 +103,19 @@ namespace YAML
 				it = jt;
 			}
 		}
-		
+
 		const_node_iterator node_data::begin() const
 		{
 			if(!m_isDefined)
 				return const_node_iterator();
-			
+
 			switch(m_type) {
 				case NodeType::Sequence: return const_node_iterator(m_sequence.begin());
 				case NodeType::Map: return const_node_iterator(m_map.begin(), m_map.end());
 				default: return const_node_iterator();
 			}
 		}
-		
+
 		node_iterator node_data::begin()
 		{
 			if(!m_isDefined)
@@ -127,7 +127,7 @@ namespace YAML
 				default: return node_iterator();
 			}
 		}
-		
+
 		const_node_iterator node_data::end() const
 		{
 			if(!m_isDefined)
@@ -139,7 +139,7 @@ namespace YAML
 				default: return const_node_iterator();
 			}
 		}
-		
+
 		node_iterator node_data::end()
 		{
 			if(!m_isDefined)
@@ -159,10 +159,10 @@ namespace YAML
 				m_type = NodeType::Sequence;
 				reset_sequence();
 			}
-			
+
 			if(m_type != NodeType::Sequence)
                 throw BadPushback();
-			
+
 			m_sequence.push_back(&node);
 		}
 
@@ -188,15 +188,15 @@ namespace YAML
 		{
 			if(m_type != NodeType::Map)
 				return pMemory->create_node();
-			
+
 			for(node_map::const_iterator it=m_map.begin();it!=m_map.end();++it) {
 				if(it->first->is(key))
 					return *it->second;
 			}
-			
+
 			return pMemory->create_node();
 		}
-		
+
 		node& node_data::get(node& key, shared_memory_holder pMemory)
 		{
 			switch(m_type) {
@@ -215,12 +215,12 @@ namespace YAML
 				if(it->first->is(key))
 					return *it->second;
 			}
-			
+
 			node& value = pMemory->create_node();
 			insert_map_pair(key, value);
 			return value;
 		}
-		
+
 		bool node_data::remove(node& key, shared_memory_holder /* pMemory */)
 		{
 			if(m_type != NodeType::Map)
@@ -232,7 +232,7 @@ namespace YAML
 					return true;
 				}
 			}
-			
+
 			return false;
 		}
 
@@ -287,7 +287,7 @@ namespace YAML
 				key.set_scalar(stream.str());
 				insert_map_pair(key, *m_sequence[i]);
 			}
-			
+
 			reset_sequence();
 			m_type = NodeType::Map;
 		}

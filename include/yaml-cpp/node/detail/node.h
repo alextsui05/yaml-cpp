@@ -17,7 +17,7 @@ namespace YAML
 {
 	namespace detail
 	{
-		class node: private boost::noncopyable
+		class YAML_CPP_API node: private boost::noncopyable
 		{
 		public:
 			node(): m_pRef(new node_ref) {}

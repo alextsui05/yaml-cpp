@@ -19,7 +19,7 @@ namespace YAML
 {
 	namespace detail
 	{
-		class node_data: private boost::noncopyable
+		class YAML_CPP_API node_data: private boost::noncopyable
 		{
 		public:
 			node_data();
@@ -62,7 +62,7 @@ namespace YAML
             void force_insert(const Key& key, const Value& value, shared_memory_holder pMemory);
 			
 		public:
-			static std::string empty_scalar;
+			//static std::string empty_scalar;
 			
 		private:
 			void compute_seq_size() const;

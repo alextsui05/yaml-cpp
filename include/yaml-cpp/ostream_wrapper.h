@@ -6,12 +6,13 @@
 #endif
 
 
+#include "yaml-cpp/dll.h"
 #include <string>
 #include <vector>
 
 namespace YAML
 {
-	class ostream_wrapper
+	class YAML_CPP_API ostream_wrapper
 	{
 	public:
 		ostream_wrapper();

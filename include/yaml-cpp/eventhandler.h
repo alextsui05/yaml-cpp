@@ -5,6 +5,8 @@
 #pragma once
 #endif
 
+
+#include "yaml-cpp/dll.h"
 #include "yaml-cpp/anchor.h"
 #include <string>
 
@@ -12,7 +14,7 @@ namespace YAML
 {
 	struct Mark;
 	
-	class EventHandler
+	class YAML_CPP_API EventHandler
 	{
 	public:
 		virtual ~EventHandler() {}

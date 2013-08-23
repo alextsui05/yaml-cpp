@@ -5,15 +5,17 @@
 #pragma once
 #endif
 
+
+#include "yaml-cpp/dll.h"
 #include <string>
 #include <vector>
 
 namespace YAML
 {
-    std::string EncodeBase64(const unsigned char *data, std::size_t size);
-    std::vector<unsigned char> DecodeBase64(const std::string& input);
+    YAML_CPP_API std::string EncodeBase64(const unsigned char *data, std::size_t size);
+    YAML_CPP_API std::vector<unsigned char> DecodeBase64(const std::string& input);
     
-    class Binary {
+    class YAML_CPP_API Binary {
     public:
         Binary(): m_unownedData(0), m_unownedSize(0) {}
         Binary(const unsigned char *data_, std::size_t size_): m_unownedData(data_), m_unownedSize(size_) {}

@@ -5,6 +5,7 @@
 #pragma once
 #endif
 
+#include "yaml-cpp/dll.h"
 #include <string>
 #include <iosfwd>
 
@@ -13,10 +14,10 @@ namespace YAML
 	class Emitter;
 	class Node;
 	
-	Emitter& operator << (Emitter& out, const Node& node);
-	std::ostream& operator << (std::ostream& out, const Node& node);
+	YAML_CPP_API Emitter& operator << (Emitter& out, const Node& node);
+	YAML_CPP_API std::ostream& operator << (std::ostream& out, const Node& node);
 	
-	std::string Dump(const Node& node);
+	YAML_CPP_API std::string Dump(const Node& node);
 }
 
 #endif // NODE_EMIT_H_62B23520_7C8E_11DE_8A39_0800200C9A66

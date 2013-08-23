@@ -5,7 +5,7 @@
 #pragma once
 #endif
 
-
+#include "yaml-cpp/dll.h"
 #include "yaml-cpp/binary.h"
 #include "yaml-cpp/node/node.h"
 #include "yaml-cpp/node/iterator.h"
@@ -143,7 +143,7 @@ namespace YAML
 			return rhs ? Node("true") : Node("false");
 		}
 		
-		static bool decode(const Node& node, bool& rhs);
+		static YAML_CPP_API bool decode(const Node& node, bool& rhs);
 	};
 
 	// std::map

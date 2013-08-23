@@ -19,7 +19,7 @@ namespace YAML
 		struct iterator_value;
 
 		template<typename V>
-		class iterator_base: public boost::iterator_adaptor<
+		class YAML_CPP_API iterator_base: public boost::iterator_adaptor<
 		iterator_base<V>,
 		node_iterator,
 		V,

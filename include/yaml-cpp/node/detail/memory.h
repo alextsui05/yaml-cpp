@@ -5,6 +5,8 @@
 #pragma once
 #endif
 
+
+#include "yaml-cpp/dll.h"
 #include "yaml-cpp/node/ptr.h"
 #include <set>
 #include <boost/shared_ptr.hpp>
@@ -13,7 +15,7 @@ namespace YAML
 {
 	namespace detail
 	{
-		class memory {
+		class YAML_CPP_API memory {
 		public:
 			node& create_node();
 			void merge(const memory& rhs);
@@ -23,7 +25,7 @@ namespace YAML
 			Nodes m_nodes;
 		};
 
-		class memory_holder {
+		class YAML_CPP_API memory_holder {
 		public:
 			memory_holder(): m_pMemory(new memory) {}
 			
