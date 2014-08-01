@@ -35,6 +35,7 @@ enable_testing()
 ## Project stuff
 option(YAML_CPP_BUILD_TOOLS "Enable testing and parse tools" OFF)
 option(YAML_CPP_BUILD_CONTRIB "Enable contrib stuff in library" ON)
+mark_as_advanced( FORCE YAML_CPP_BUILD_TOOLS YAML_CPP_BUILD_CONTRIB )
 
 ## Build options
 # --> General
@@ -43,13 +44,17 @@ option(YAML_CPP_BUILD_CONTRIB "Enable contrib stuff in library" ON)
 option(BUILD_SHARED_LIBS "Build Shared Libraries" ON)
 
 # --> Apple
+if ( APPLE )
 option(APPLE_UNIVERSAL_BIN "Apple: Build universal binary" OFF)
+mark_as_advanced( FORCE APPLE_UNIVERSAL_BIN )
+endif ( )
 
 # --> Microsoft Visual C++
 # see http://msdn.microsoft.com/en-us/library/aa278396(v=VS.60).aspx
 #     http://msdn.microsoft.com/en-us/library/2kzt1wy3(v=VS.71).aspx
 option(MSVC_SHARED_RT "MSVC: Build with shared runtime libs (/MD)" ON)
 option(MSVC_STHREADED_RT "MSVC: Build with single-threaded static runtime libs (/ML until VS .NET 2003)" OFF)
+mark_as_advanced( FORCE MSVC_SHARED_RT MSVC_STHREADED_RT )
 
 ###
 ### Sources, headers, directories and libs
