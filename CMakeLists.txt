@@ -288,3 +288,6 @@ if(YAML_CPP_BUILD_TOOLS)
 	add_subdirectory(test)
 	add_subdirectory(util)
 endif()
+
+set(yaml-cpp_INCLUDE_DIRS "${PROJECT_SOURCE_DIR}/include"
+    CACHE PATH "Path to yaml-cpp include dir")
