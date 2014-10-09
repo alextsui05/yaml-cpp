@@ -1,6 +1,10 @@
 This is a fork of the [yaml-cpp](https://code.google.com/p/yaml-cpp/)
 project with modest edits for bundling in an existing CMake project.
 
+Version
+-----
+At the time of fork, `yaml-cpp` was version 0.5.1.
+
 Usage
 -----
 I wanted to be able to bundle `yaml-cpp` like so:
