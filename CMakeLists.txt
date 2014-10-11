@@ -291,3 +291,4 @@ endif()
 
 set(yaml-cpp_INCLUDE_DIRS "${PROJECT_SOURCE_DIR}/include"
     CACHE PATH "Path to yaml-cpp include dir")
+mark_as_advanced(yaml-cpp_INCLUDE_DIRS)
